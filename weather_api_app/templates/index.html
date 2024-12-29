@@ -9,6 +9,7 @@
 </form>
 {% if data %}
 <p>Location: {{ data.resolvedAddress }}</p>
+<p>Timezone: {{ data.timezone }}</p>
 <p>Temperature: {{ data.days.0.temp }}F</p>
 <p>Humidity: {{ data.days.0.humidity }}%</p>
 <p>Precipitation: {{ data.days.0.precip }}inch</p>
