@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block body %}
+<h1>Weather App</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="text" name="location" id="location" placeholder="Enter location">
+    <input type="submit" value="search">
+</form>
+{% if data %}
+<p>Location: {{ data.resolvedAddress }}</p>
+<p>Temperature: {{ data.days.0.temp }}F</p>
+<p>Humidity: {{ data.days.0.humidity }}%</p>
+<p>Precipitation: {{ data.days.0.precip }}inch</p>
+<p>Windspeed: {{ data.days.0.windspeed }}m/h</p>
+<p>Description: {{ data.days.0.description }}</p>
+{% else %}
+<p>{{ error }}</p>
+{% endif %}
+{% endblock body %}
